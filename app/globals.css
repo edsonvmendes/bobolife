@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b141a;
+  --bg-elevated: #111b21;
+  --panel: #111b21;
+  --panel-strong: #18252d;
+  --ink: #edf3f6;
+  --muted: #95a5ae;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #78d6a3;
+  --accent-strong: #9de8ba;
+  --warning: #ffb089;
+  --shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  --bubble-own: #1f7a5b;
+  --bubble-other: #18252d;
+  --shell: #0f1a20;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(155, 176, 182, 0.22);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.glass-panel {
+  background: var(--panel);
+  backdrop-filter: none;
+}
