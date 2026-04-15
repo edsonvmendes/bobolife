@@ -2,6 +2,7 @@ import type { ConversationDetail, ConversationSummary } from "@/lib/types";
 import { ConversationList } from "@/components/conversation-list";
 import { ConversationView } from "@/components/conversation-view";
 import { LanguageSelector } from "@/components/language-selector";
+import { cn } from "@/lib/utils";
 
 interface AppShellProps {
   conversations: ConversationSummary[];
@@ -21,7 +22,12 @@ export function AppShell({
   return (
     <main className="mx-auto min-h-screen w-full max-w-[1380px] px-0 lg:px-4 lg:py-4">
       <div className="overflow-hidden border border-white/6 bg-[var(--shell)] lg:grid lg:min-h-[calc(100vh-2rem)] lg:grid-cols-[340px_1fr] lg:rounded-[2rem]">
-        <aside className="glass-panel overflow-hidden border-r border-white/6">
+        <aside
+          className={cn(
+            "glass-panel overflow-hidden border-r border-white/6",
+            activeConversationId ? "hidden lg:block" : "block",
+          )}
+        >
           <div className="border-b border-white/6 px-4 py-4 sm:px-5">
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -48,7 +54,9 @@ export function AppShell({
           />
         </aside>
 
-        <ConversationView conversation={detail} summary={activeSummary} />
+        <div className={cn(activeConversationId ? "block" : "hidden lg:block")}>
+          <ConversationView conversation={detail} summary={activeSummary} />
+        </div>
       </div>
     </main>
   );

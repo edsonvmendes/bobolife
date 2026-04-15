@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useMemo, useRef } from "react";
 import { useConversationFeed } from "@/hooks/use-conversation-feed";
 import { BOB_CHARACTER_ID } from "@/lib/constants";
@@ -84,6 +85,13 @@ function LiveConversationView({
     <section className="glass-panel flex min-h-[72vh] flex-1 flex-col overflow-hidden">
       <header className="flex items-center justify-between gap-4 border-b border-white/6 bg-[var(--panel-strong)] px-4 py-4 sm:px-6">
         <div className="flex min-w-0 items-center gap-3">
+          <Link
+            href="/chats"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/8 text-sm text-[var(--muted)] transition-colors hover:bg-white/6 hover:text-white lg:hidden"
+            aria-label="Voltar para conversas"
+          >
+            ←
+          </Link>
           <div className="relative h-11 w-11 overflow-hidden rounded-full border border-white/8">
             {summary?.coverAvatar ? (
               <Image
